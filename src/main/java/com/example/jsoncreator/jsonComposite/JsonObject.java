@@ -29,13 +29,13 @@ public class JsonObject extends JsonProperty {
     }
 
     @Override
-    public String toString() {
+    public String writeToString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(super.toString()).append(" {");
+        stringBuilder.append(super.writeToString()).append("{ ");
         children.forEach((o) -> {
-            stringBuilder.append(o.toString());
+            stringBuilder.append(o.writeToString());
         });
-        stringBuilder.append("}");
+        stringBuilder.append("},");
         return stringBuilder.toString();
     }
 }

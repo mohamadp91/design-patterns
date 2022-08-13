@@ -1,5 +1,7 @@
 package com.example.jsoncreator.controller;
 
+import com.example.jsoncreator.decorator.IndentDecorator;
+import com.example.jsoncreator.decorator.JsonDecorator;
 import com.example.jsoncreator.jsonComposite.JsonObject;
 import com.example.jsoncreator.models.JsonArray;
 import com.example.jsoncreator.models.JsonElement;
@@ -12,10 +14,13 @@ public class Controller {
 
     @GetMapping("/hello")
     public String createArray() {
-        JsonProperty j = new JsonElement("hello",true);
-        JsonProperty a = new JsonArray("hi",false,1f,2.4,56);
-        JsonProperty b = new JsonObject("all",j);
-        ((JsonObject)b).add(a);
-        return b.toString();
+        JsonProperty j = new JsonElement("hello", true);
+        JsonProperty a = new JsonArray("hi", false, 1f, 2.4, 56);
+        JsonProperty b = new JsonObject("all", j, a);
+        JsonProperty c = new JsonObject("base", new JsonObject("base2", b));
+
+        JsonDecorator d = new IndentDecorator(c);
+
+        return d.writeToString();
     }
 }
