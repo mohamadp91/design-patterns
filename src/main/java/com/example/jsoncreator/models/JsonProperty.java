@@ -1,6 +1,7 @@
 package com.example.jsoncreator.models;
 
 public abstract class JsonProperty implements JsonComponent {
+
     protected String name;
 
     public String getName() {
@@ -8,10 +9,12 @@ public abstract class JsonProperty implements JsonComponent {
     }
 
     @Override
-    public JsonComponent getInstance() {
+    public JsonProperty getInstance() {
         return this;
     }
 
     @Override
-    public abstract String toString();
+    public String writeToString() {
+        return getName() + " : ";
+    }
 }

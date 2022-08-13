@@ -19,14 +19,14 @@ public class JsonArray extends JsonProperty {
     }
 
     @Override
-    public String toString() {
-        StringBuilder property = new StringBuilder(name + ": [");
+    public String writeToString() {
+        StringBuilder property = new StringBuilder(super.writeToString() + " [");
         objectArray.forEach((o) -> {
             property.append(o.toString());
             if (o != objectArray.get(objectArray.size() - 1))
                 property.append(",");
         });
-        property.append("]");
+        property.append("],");
         return property.toString();
     }
 }
