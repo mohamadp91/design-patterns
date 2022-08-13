@@ -12,6 +12,6 @@ public class JsonElement extends JsonProperty {
 
     @Override
     public String toString() {
-        return "name : " + value.toString() + ",";
+        return super.toString() + value.toString() + ",";
     }
 }

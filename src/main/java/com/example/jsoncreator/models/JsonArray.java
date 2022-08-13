@@ -20,7 +20,7 @@ public class JsonArray extends JsonProperty {
 
     @Override
     public String toString() {
-        StringBuilder property = new StringBuilder(name + ": [");
+        StringBuilder property = new StringBuilder(super.toString() + " [");
         objectArray.forEach((o) -> {
             property.append(o.toString());
             if (o != objectArray.get(objectArray.size() - 1))

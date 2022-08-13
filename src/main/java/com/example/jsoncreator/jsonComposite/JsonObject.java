@@ -1,37 +1,37 @@
 package com.example.jsoncreator.jsonComposite;
 
-import com.example.jsoncreator.models.JsonComponent;
+import com.example.jsoncreator.models.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class JsonObject implements JsonComponent {
+public class JsonObject extends JsonProperty {
 
-    ArrayList<JsonComponent> children = new ArrayList<>();
-    private String name;
+    ArrayList<JsonProperty> children = new ArrayList<>();
 
-    public JsonObject(String name, JsonComponent... jsonComponents) {
-        this.name = name;
+    public JsonObject(String name, JsonProperty... jsonComponents) {
+        super();
+        super.name = name;
         children.addAll(Arrays.stream(jsonComponents).toList());
     }
 
-    public void add(JsonComponent jsonComponent) {
+    public void add(JsonProperty jsonComponent) {
         children.add(jsonComponent);
     }
 
-    public void remove(JsonComponent jsonComponent) {
+    public void remove(JsonProperty jsonComponent) {
         children.remove(jsonComponent);
     }
 
     @Override
-    public JsonComponent getInstance() {
+    public JsonProperty getInstance() {
         return this;
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(name).append(": {");
+        stringBuilder.append(super.toString()).append(" {");
         children.forEach((o) -> {
             stringBuilder.append(o.toString());
         });
