@@ -1,11 +1,9 @@
 package com.example.jsoncreator.models;
 
-import java.util.ArrayList;
-
 public interface JsonComponent {
 
-    public JsonProperty getInstance();
+    JsonProperty getInstance();
 
-    public String writeToString();
+    String writeToString();
 
 }
