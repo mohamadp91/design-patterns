@@ -2,7 +2,7 @@ package com.example.jsoncreator.models;
 
 public class JsonElement extends JsonProperty {
 
-    private Object value;
+    private final Object value;
 
     public JsonElement(String name, Object value) {
         super();
